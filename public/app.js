@@ -18,10 +18,12 @@ function add_to_cart(id)
 	window.localStorage.setItem(key, x);
 
 	var total = 0;
-	for (var i = 1; i <= 3; i++)
+	for (var i=0, len = window.localStorage.length; i<len; i++)
 	{
-		var key = 'product_' + i;
-		total += window.localStorage.getItem(key) * 1;
+		key = window.localStorage.key(i);
+		if ((/^product_/).test(key)){
+			total += window.localStorage.getItem(key) * 1;
+		}
 	}
 	alert('There are ' + total + ' pizzas in cart.');
 }
