@@ -23,11 +23,11 @@ post '/cart' do
 
 	@items.each do |item|
 		# id, cnt
-		item[0] = Product.find(item[0]).as_json
+		item[0] = Product.find item[0]
 
 	end
 
-	erb "#{@items.inspect}"
+	erb :cart
 end
 
 def parse_orders_input orders_input
