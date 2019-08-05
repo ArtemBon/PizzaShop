@@ -37,7 +37,7 @@ post '/order' do
 	o = Order.new params[:order]
 	o.save
 
-	erb "Thank you!"
+	erb :order_placed
 end
 
 
